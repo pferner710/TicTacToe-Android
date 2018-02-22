@@ -47,6 +47,16 @@ public class TicTacToeModel {
         return model[x][y];
     }
 
+    public void resetGame(){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                model[i][j] = EMPTY;
+            }
+        }
+
+        nextPlayer = CIRCLE;
+    }
+
     // CMD + N can auto generate getters, setters, constructors
     public short getNextPlayer() {
         return nextPlayer;
