@@ -47,4 +47,18 @@ public class TicTacToeModel {
         return model[x][y];
     }
 
+    // CMD + N can auto generate getters, setters, constructors
+    public short getNextPlayer() {
+        return nextPlayer;
+    }
+
+    public void changeNextPlayer() {
+        //nextPlayer = (nextPlayer == CIRCLE) ? CROSS : CIRCLE;
+
+        if (nextPlayer == CIRCLE) {
+            nextPlayer = CROSS;
+        } else {
+            nextPlayer = CIRCLE;
+        }
+    }
 }

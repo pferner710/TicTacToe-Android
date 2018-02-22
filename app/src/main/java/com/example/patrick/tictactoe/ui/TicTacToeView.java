@@ -103,7 +103,21 @@ public class TicTacToeView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         if(event.getAction() == MotionEvent.ACTION_DOWN){
 
+            int tX = (int)event.getX() / ((getWidth() / 3);
+            int tY = (int)event.getY() / ((getWidth() / 3);
+
+            if (TicTacToeModel.getInstance().getFieldContent(((short) tX, (short) tY))){
+                TicTacToeModel.getInstance().setFieldContent(
+                        (short)tX,
+                        (short)tY,
+                        TicTacToeModel.getInstance().getNextPlayer()
+                );
+            }
+            TicTacToeModel.getInstance().changeNextPlayer();
+
             invalidate(); //This view is no longer valid, so redraw (calls onDraw again)
+            // invalidate() can be called with 4 parameters, indicating a rectangle on screen that
+            // will be exclusively updated.
         }
         return super.onTouchEvent(event);
     }
